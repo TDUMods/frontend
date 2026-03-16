@@ -179,6 +179,7 @@
 import { CodeIcon, RadioButtonCheckedIcon, RadioButtonIcon } from '@modrinth/assets'
 import {
 	Button,
+	commonMessages,
 	defineMessages,
 	injectNotificationManager,
 	IntlFormatted,
@@ -193,12 +194,12 @@ import MessageBanner from '~/components/ui/MessageBanner.vue'
 import type { DisplayLocation } from '~/plugins/cosmetics'
 import { isDarkTheme, type Theme } from '~/plugins/theme/index.ts'
 
-useHead({
-	title: 'Display settings - Modrinth',
-})
-
 const { addNotification } = injectNotificationManager()
 const { formatMessage } = useVIntl()
+
+useHead({
+	title: () => `Display settings - ${formatMessage(commonMessages.siteName)}`,
+})
 
 const developerModeBanner = defineMessages({
 	description: {

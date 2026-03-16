@@ -100,7 +100,7 @@ const { addNotification } = injectNotificationManager()
 const { formatMessage } = useVIntl()
 
 useHead({
-	title: 'Profile settings - Modrinth',
+	title: () => `Profile settings - ${formatMessage(commonMessages.siteName)}`,
 })
 
 definePageMeta({

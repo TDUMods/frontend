@@ -7,7 +7,12 @@
 				<Logo404 />
 			</div>
 			<div class="error-box" :class="{ 'has-bot': !is404 }">
-				<img v-if="!is404" :src="SadRinthbot" alt="Sad Modrinth bot" class="error-box__sad-bot" />
+				<img
+					v-if="!is404"
+					:src="SadRinthbot"
+					:alt="formatMessage(sadModrinthBotAlt)"
+					class="error-box__sad-bot"
+				/>
 				<div v-if="!is404" class="error-box__top-glow" />
 				<div class="error-box__body">
 					<h1 class="error-box__title">{{ formatMessage(errorMessages.title) }}</h1>
@@ -86,6 +91,11 @@ providePageContext({
 })
 
 const { formatMessage } = useVIntl()
+
+const sadModrinthBotAlt = defineMessage({
+	id: 'error.alt.sad-modrinth-bot',
+	defaultMessage: 'Sad Modrinth bot',
+})
 
 const props = defineProps({
 	error: {

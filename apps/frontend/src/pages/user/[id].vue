@@ -739,7 +739,7 @@ if (user.value.username !== route.params.id) {
 	await navigateTo(`/user/${user.value.username}`, { redirectCode: 301 })
 }
 
-const title = computed(() => `${user.value.username} - Modrinth`)
+const title = computed(() => `${user.value.username} - ${formatMessage(commonMessages.siteName)}`)
 const description = computed(() =>
 	user.value.bio
 		? formatMessage(messages.profileMetaDescriptionWithBio, {

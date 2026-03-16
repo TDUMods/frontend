@@ -90,6 +90,7 @@ import {
 import {
 	ButtonStyled,
 	Combobox,
+	commonMessages,
 	defineMessages,
 	EmptyState,
 	useFormatDateTime,
@@ -113,7 +114,7 @@ const formatMonth = useFormatDateTime({
 const generatedState = useGeneratedState()
 
 useHead({
-	title: 'Transaction history - Modrinth',
+	title: () => `Transaction history - ${formatMessage(commonMessages.siteName)}`,
 })
 
 const { data: transactions, refresh } = await useAsyncData(`payout-history`, () =>

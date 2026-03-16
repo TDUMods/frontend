@@ -18,7 +18,7 @@ import {
 	VersionIcon,
 	WrenchIcon,
 } from '@modrinth/assets'
-import { Admonition, injectModrinthServerContext, useVIntl } from '@modrinth/ui'
+import { Admonition, commonMessages, injectModrinthServerContext, useVIntl } from '@modrinth/ui'
 import { isAdmin as isUserAdmin, type User } from '@modrinth/utils'
 
 import ServerSidebar from '~/components/ui/servers/ServerSidebar.vue'
@@ -40,7 +40,7 @@ const backupBusyReason = computed(() => {
 })
 
 useHead({
-	title: `Options - ${server.value?.name ?? 'Server'} - Modrinth`,
+	title: `Options - ${server.value?.name ?? 'Server'} - ${formatMessage(commonMessages.siteName)}`,
 })
 
 const ownerId = computed(() => server.value?.owner_id ?? 'Ghost')

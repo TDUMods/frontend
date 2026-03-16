@@ -114,13 +114,15 @@ import ModerationQueueCard from '~/components/ui/moderation/ModerationQueueCard.
 import { enrichProjectBatch, type ModerationProject } from '~/helpers/moderation.ts'
 import { useModerationStore } from '~/store/moderation.ts'
 
-useHead({ title: 'Projects queue - Modrinth' })
-
 const { formatMessage } = useVIntl()
 const { addNotification } = injectNotificationManager()
 const moderationStore = useModerationStore()
 const route = useRoute()
 const router = useRouter()
+
+useHead({
+	title: () => `Projects queue - ${formatMessage(commonMessages.siteName)}`,
+})
 
 const visible = ref(false)
 if (import.meta.client && history && history.state && history.state.confetti) {

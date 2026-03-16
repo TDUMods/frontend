@@ -164,6 +164,7 @@
 import { TerminalSquareIcon } from '@modrinth/assets'
 import {
 	Admonition,
+	commonMessages,
 	injectModrinthClient,
 	injectModrinthServerContext,
 	useVIntl,
@@ -581,7 +582,7 @@ const selectedSuggestionIndex = ref(0)
 const suggestionsList = ref<HTMLUListElement | null>(null)
 
 useHead({
-	title: `Overview - ${serverData.value?.name ?? 'Server'} - Modrinth`,
+	title: `Overview - ${serverData.value?.name ?? 'Server'} - ${formatMessage(commonMessages.siteName)}`,
 })
 
 const bestSuggestion = computed(() => {

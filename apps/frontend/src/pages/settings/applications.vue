@@ -248,6 +248,7 @@ import {
 	Avatar,
 	Button,
 	Checkbox,
+	commonMessages,
 	commonSettingsMessages,
 	ConfirmModal,
 	CopyCode,
@@ -280,7 +281,7 @@ definePageMeta({
 })
 
 useHead({
-	title: 'Applications - Modrinth',
+	title: () => `Applications - ${formatMessage(commonMessages.siteName)}`,
 })
 
 const messages = defineMessages({

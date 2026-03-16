@@ -209,7 +209,8 @@ definePageMeta({
 })
 
 useHead({
-	title: () => `${formatMessage(messages.collectionsLongTitle)} - Modrinth`,
+	title: () =>
+		`${formatMessage(messages.collectionsLongTitle)} - ${formatMessage(commonMessages.siteName)}`,
 })
 
 const auth = await useAuth()

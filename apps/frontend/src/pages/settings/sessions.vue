@@ -98,7 +98,8 @@ const messages = defineMessages({
 })
 
 useHead({
-	title: () => `${formatMessage(commonSettingsMessages.sessions)} - Modrinth`,
+	title: () =>
+		`${formatMessage(commonSettingsMessages.sessions)} - ${formatMessage(commonMessages.siteName)}`,
 })
 
 const { data: sessions, refresh } = await useAsyncData('session/list', () =>

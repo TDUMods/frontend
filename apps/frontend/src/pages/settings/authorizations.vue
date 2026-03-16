@@ -93,6 +93,7 @@ import { CheckIcon, TrashIcon } from '@modrinth/assets'
 import {
 	Avatar,
 	Button,
+	commonMessages,
 	commonSettingsMessages,
 	ConfirmModal,
 	injectNotificationManager,
@@ -113,7 +114,7 @@ definePageMeta({
 })
 
 useHead({
-	title: 'Authorizations - Modrinth',
+	title: () => `Authorizations - ${formatMessage(commonMessages.siteName)}`,
 })
 
 const { data: usersApps, refresh } = await useAsyncData('userAuthorizations', () =>

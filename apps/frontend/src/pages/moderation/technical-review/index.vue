@@ -28,8 +28,6 @@ import MaliciousSummaryModal, {
 } from '~/components/ui/moderation/MaliciousSummaryModal.vue'
 import ModerationTechRevCard from '~/components/ui/moderation/ModerationTechRevCard.vue'
 
-useHead({ title: 'Tech review queue - Modrinth' })
-
 const client = injectModrinthClient()
 const queryClient = useQueryClient()
 
@@ -39,6 +37,10 @@ const UI_PAGE_SIZE = 4
 const { formatMessage } = useVIntl()
 const route = useRoute()
 const router = useRouter()
+
+useHead({
+	title: () => `Tech review queue - ${formatMessage(commonMessages.siteName)}`,
+})
 
 const CACHE_TTL = 24 * 60 * 60 * 1000
 const CACHE_KEY_PREFIX = 'tech_review_source_'

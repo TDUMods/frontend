@@ -33,7 +33,7 @@
 				<ScaleIcon v-if="members[message.author_id].role === 'moderator'" v-tooltip="'Moderator'" />
 				<ModrinthIcon
 					v-else-if="members[message.author_id].role === 'admin'"
-					v-tooltip="'Modrinth Team'"
+					v-tooltip="formatMessage(messages.modrinthTeamTooltip)"
 				/>
 				<MicrophoneIcon
 					v-if="report && message.author_id === report.reporter_user?.id"
@@ -135,9 +135,11 @@ import {
 	AutoLink,
 	Avatar,
 	Badge,
+	defineMessages,
 	OverflowMenu,
 	useFormatDateTime,
 	useRelativeTime,
+	useVIntl,
 } from '@modrinth/ui'
 import { renderString } from '@modrinth/utils'
 
@@ -175,6 +177,15 @@ const props = defineProps({
 })
 
 const emit = defineEmits(['update-thread'])
+
+const { formatMessage } = useVIntl()
+
+const messages = defineMessages({
+	modrinthTeamTooltip: {
+		id: 'thread.message.tooltip.modrinth-team',
+		defaultMessage: 'Modrinth Team',
+	},
+})
 
 const formattedMessage = computed(() => {
 	const body = renderString(props.message.body.body)

@@ -337,8 +337,6 @@ import { Multiselect } from 'vue-multiselect'
 import ModalCreation from '~/components/ui/create/ProjectCreateModal.vue'
 import { getProjectTypeForUrl } from '~/helpers/projects.js'
 
-useHead({ title: 'Projects - Modrinth' })
-
 // const UPLOAD_VERSION = 1 << 0
 // const DELETE_VERSION = 1 << 1
 const EDIT_DETAILS = 1 << 2
@@ -350,6 +348,10 @@ const EDIT_DETAILS = 1 << 2
 
 const { addNotification } = injectNotificationManager()
 const { formatMessage } = useVIntl()
+
+useHead({
+	title: () => `Projects - ${formatMessage(commonMessages.siteName)}`,
+})
 
 const user = await useUser()
 const projects = ref([])

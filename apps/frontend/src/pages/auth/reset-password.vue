@@ -144,7 +144,7 @@ const messages = defineMessages({
 })
 
 useHead({
-	title: () => `${formatMessage(messages.title)} - Modrinth`,
+	title: () => `${formatMessage(messages.title)} - ${formatMessage(commonMessages.siteName)}`,
 })
 
 const auth = await useAuth()

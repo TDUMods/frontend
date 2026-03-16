@@ -957,7 +957,7 @@ useHead({
 	],
 })
 useSeoMeta({
-	title: 'Modrinth',
+	title: () => formatMessage(commonMessages.siteName),
 	description: () =>
 		formatMessage({
 			id: 'layout.meta.description',
@@ -965,13 +965,13 @@ useSeoMeta({
 				'Download Minecraft mods, plugins, datapacks, shaders, resourcepacks, and modpacks on Modrinth. ' +
 				'Discover and publish projects on Modrinth with a modern, easy to use interface and API.',
 		}),
-	publisher: 'Modrinth',
+	publisher: () => formatMessage(commonMessages.siteName),
 	themeColor: '#1bd96a',
 	colorScheme: 'dark light',
 
 	// OpenGraph
-	ogTitle: 'Modrinth',
-	ogSiteName: 'Modrinth',
+	ogTitle: () => formatMessage(commonMessages.siteName),
+	ogSiteName: () => formatMessage(commonMessages.siteName),
 	ogDescription: () =>
 		formatMessage({
 			id: 'layout.meta.og-description',

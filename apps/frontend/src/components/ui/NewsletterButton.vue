@@ -1,11 +1,20 @@
 <script setup lang="ts">
 import { CheckIcon, MailIcon } from '@modrinth/assets'
-import { ButtonStyled } from '@modrinth/ui'
+import { ButtonStyled, defineMessages, useVIntl } from '@modrinth/ui'
 import { ref } from 'vue'
 
 import { useBaseFetch } from '~/composables/fetch.js'
 
 const auth = await useAuth()
+const { formatMessage } = useVIntl()
+
+const messages = defineMessages({
+	subscribeToNewsletterTooltip: {
+		id: 'components.newsletter-button.tooltip.subscribe',
+		defaultMessage: 'Subscribe to the Modrinth newsletter',
+	},
+})
+
 const showSubscriptionConfirmation = ref(false)
 const showSubscribeButton = useAsyncData(
 	async () => {
@@ -49,7 +58,7 @@ async function subscribe() {
 		color="brand"
 		type="outlined"
 	>
-		<button v-tooltip="`Subscribe to the Modrinth newsletter`" @click="subscribe">
+		<button v-tooltip="formatMessage(messages.subscribeToNewsletterTooltip)" @click="subscribe">
 			<template v-if="!showSubscriptionConfirmation"> <MailIcon /> Subscribe </template>
 			<template v-else> <CheckIcon /> Subscribed! </template>
 		</button>

@@ -277,6 +277,10 @@ export const commonMessages = defineMessages({
 		id: 'label.settings',
 		defaultMessage: 'Settings',
 	},
+	siteName: {
+		id: 'brand.site-name',
+		defaultMessage: 'Modrinth',
+	},
 	signInButton: {
 		id: 'button.sign-in',
 		defaultMessage: 'Sign in',

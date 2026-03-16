@@ -187,7 +187,7 @@ const messages = defineMessages({
 
 useHead({
 	title() {
-		return `${formatMessage(messages.signInTitle)} - Modrinth`
+		return `${formatMessage(messages.signInTitle)} - ${formatMessage(commonMessages.siteName)}`
 	},
 })
 

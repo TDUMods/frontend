@@ -1,6 +1,10 @@
 <template>
 	<div class="welcome-box has-bot">
-		<img :src="WavingRinthbot" alt="Waving Modrinth Bot" class="welcome-box__waving-bot" />
+		<img
+			:src="WavingRinthbot"
+			:alt="formatMessage(messages.wavingModrinthBotAlt)"
+			class="welcome-box__waving-bot"
+		/>
 		<div class="welcome-box__top-glow" />
 		<div class="welcome-box__body">
 			<h1 class="welcome-box__title">
@@ -87,10 +91,15 @@ const messages = defineMessages({
 		id: 'auth.welcome.title',
 		defaultMessage: 'Welcome',
 	},
+	wavingModrinthBotAlt: {
+		id: 'auth.welcome.image.waving-modrinth-bot-alt',
+		defaultMessage: 'Waving Modrinth Bot',
+	},
 })
 
 useHead({
-	title: () => `${formatMessage(messages.welcomeTitle)} - Modrinth`,
+	title: () =>
+		`${formatMessage(messages.welcomeTitle)} - ${formatMessage(commonMessages.siteName)}`,
 })
 
 const subscribe = ref(true)
